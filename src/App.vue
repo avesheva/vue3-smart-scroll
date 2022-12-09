@@ -1,9 +1,11 @@
 <template>
-  <your-lib-name />
+  <div>
+    <smart-scroll />
+  </div>
 </template>
 
 <script setup lang="ts">
-import YourLibName from '../lib'
+import SmartScroll from '../lib'
 
 </script>
 

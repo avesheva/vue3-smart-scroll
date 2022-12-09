@@ -7,8 +7,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'lib/index.ts'),
-      name: 'your-lib-name',
-      fileName: format => `your-lib-name.${ format }.js`,
+      name: 'vue3-smart-scroll',
+      fileName: format => `vue3-smart-scroll.${ format }.js`,
     },
     rollupOptions: {
       external: ['vue'],

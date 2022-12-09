@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    <h2>Your lib</h2>
+    <h2>Smart Scroll component</h2>
   </div>
 </template>
 

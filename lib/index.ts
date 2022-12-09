@@ -1,3 +1,3 @@
-import YourLibName from './YourLibName.vue'
+import SmartScroll from './SmartScroll.vue'
 
-export default YourLibName
+export default SmartScroll
