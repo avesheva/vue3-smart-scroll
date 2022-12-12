@@ -5,22 +5,18 @@ import { delay } from './utils/helpers'
 interface Props {
   id?: string,
   scrollDelay?: number,
+  onlyVisible?: boolean,
 }
 const props = withDefaults(defineProps<Props>(), {
   id: 'smartScrollContainer',
   scrollDelay: 300,
+  onlyVisible: false,
 })
 
-const emit = defineEmits(['scroll', 'visibility-change'])
+const emit = defineEmits(['scroll'])
 
 let wrapperBlock: HTMLElement | null = null
 let wrapperClientRect: DOMRect | null = null
-
-const emitVisibilityChange = () => {
-  console.log('EMIT visibility change ... ')
-}
-
-const delayedEmitVisibilityChange = delay(emitVisibilityChange, 1000)
 
 const init = () => {
   wrapperBlock = document.getElementById(props.id)
@@ -44,12 +40,10 @@ const checkItemsVisibility = (wrapper: HTMLElement) => {
     ) {
       if (!isVisible || isVisible === 'false') {
         item.setAttribute('data-is-visible', 'true')
-        delayedEmitVisibilityChange()
       }
-    } else {
+    } else if (!props.onlyVisible) {
       if (!isVisible || isVisible === 'true') {
         item.setAttribute('data-is-visible', 'false')
-        delayedEmitVisibilityChange()
       }
     }
   }
