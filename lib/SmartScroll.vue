@@ -17,6 +17,7 @@ const emit = defineEmits(['scroll'])
 
 let wrapperBlock: HTMLElement | null = null
 let wrapperClientRect: DOMRect | null = null
+let scrollTop = 0
 
 const init = () => {
   wrapperBlock = document.getElementById(props.id)
@@ -24,6 +25,7 @@ const init = () => {
   if (!wrapperBlock) throw Error(`Can't find element with id "${props.id}"`)
 
   wrapperClientRect = wrapperBlock.getBoundingClientRect()
+  scrollTop = wrapperBlock.scrollTop
 }
 
 const checkItemsVisibility = (wrapper: HTMLElement) => {
@@ -50,8 +52,14 @@ const checkItemsVisibility = (wrapper: HTMLElement) => {
 }
 
 const scrollHandler = () => {
-  wrapperBlock && checkItemsVisibility(wrapperBlock)
-  emit('scroll')
+  if (wrapperBlock) {
+    const direction: 'up' | 'down' = scrollTop < wrapperBlock.scrollTop ? 'down' : 'up'
+
+    checkItemsVisibility(wrapperBlock)
+    scrollTop = wrapperBlock.scrollTop
+
+    emit('scroll', direction)
+  }
 }
 const delayedScrollHandler = delay(scrollHandler, props.scrollDelay)
 
