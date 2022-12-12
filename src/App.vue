@@ -36,26 +36,30 @@ import SmartScroll from '../lib'
   content: "";
   width: 20px;
   height: 20px;
-  border: solid #242424;
+  border: solid #B08620;
   margin: 0 10px;
 }
 .info p:first-child::before {
-  background: #242424;
+  background: #B08620;
+}
+.info p:nth-child(2)::before {
+  background: #FDD77D;
 }
 
 #smartScrollContainer {
+  width: 300px;
   border: solid;
   max-height: 355px;
 }
 
 *[data-is-visible="true"] {
-  background: white;
-  color: #242424;
+  background: #FDD77D;
+  color: #644D12;
   transition: background-color 1s;
 }
 *[data-is-visible="false"] {
-  background: #242424;
-  color: white;
+  background: #B08620;
+  color: #FEF0CD;
   transition: background-color 1s;
 }
 
