@@ -7,15 +7,17 @@ interface Props {
   scrollDelay?: number,
   onlyVisible?: boolean,
   deleteViewed?: boolean,
+  itemAttribute?: string,
 }
 const props = withDefaults(defineProps<Props>(), {
   id: 'smartScrollContainer',
   scrollDelay: 300,
   onlyVisible: false,
   deleteViewed: false,
+  itemAttribute: '',
 })
 
-const emit = defineEmits(['scroll'])
+const emit = defineEmits(['scroll', 'items-delete'])
 
 let wrapperBlock: HTMLElement | null = null
 let wrapperClientRect: DOMRect | null = null
@@ -54,17 +56,25 @@ const checkItemsVisibility = (wrapper: HTMLElement) => {
   }
 }
 
-const deleteHiddenItems = (wrapper: HTMLElement) => {
+const deleteViewedItems = (wrapper: HTMLElement) => {
+  const deletedItems = []
+
   for (const item of wrapper.children) {
     const isVisible = item.getAttribute('data-is-visible')
 
     if (isVisible === 'false') {
       deleting = true
       item.remove()
+
+      if (props.itemAttribute) {
+        deletedItems.push(item.getAttribute(props.itemAttribute))
+      }
     } else {
       break
     }
   }
+
+  deletedItems.length > 0 && emit('items-delete', deletedItems)
 }
 
 const scrollHandler = () => {
@@ -81,7 +91,7 @@ const scrollHandler = () => {
 
     emit('scroll', direction)
 
-    props.deleteViewed && deleteHiddenItems(wrapperBlock)
+    props.deleteViewed && deleteViewedItems(wrapperBlock)
   }
 }
 const delayedScrollHandler = delay(scrollHandler, props.scrollDelay)
