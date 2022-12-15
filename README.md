@@ -42,7 +42,32 @@ export default {
         Item: {{ number }}
       </div>
     </smart-scroll>
+    
+    <style scoped>
+      #smartScrollContainer {
+        width: 300px;
+        border: solid;
+        height: 350px;
+      }
+      
+      .item {
+        padding: 2rem;
+        font-size: 2rem;
+      }
+      
+      *[data-is-visible="true"] {
+        background: #FDD77D;
+        color: #644D12;
+        transition: background-color 1s;
+      }
+      *[data-is-visible="false"] {
+        background: #B08620;
+        color: #FEF0CD;
+        transition: background-color 1s;
+      }
+    </style>
 ```
+**NOTE: You should add styles to scroll container and set _height_ or _max-height_**
 
 ## Props
 | NAME          | TYPE    | DEFAULT              | DESCRIPTION |
