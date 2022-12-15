@@ -2,7 +2,7 @@
   "name": "vue3-smart-scroll",
   "version": "1.0.0",
   "description": "Vue 3 scroll block with items visibility detection and other features",
-  "homepage": "https://github.com/avesheva/vue3-fixed-size-accordion",
+  "homepage": "https://github.com/avesheva/vue3-smart-scroll",
   "author": "Andrii Shevchenko <shevchenkoandrii.dev@gmail.com>",
   "license": "MIT",
   "keywords": [
