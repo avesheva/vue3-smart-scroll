@@ -28,10 +28,10 @@ let deleting = false
 const init = () => {
   wrapperBlock = document.getElementById(props.id)
 
-  if (!wrapperBlock) throw Error(`Can't find element with id "${props.id}"`)
-
-  wrapperClientRect = wrapperBlock.getBoundingClientRect()
-  scrollTop = wrapperBlock.scrollTop
+  if (wrapperBlock) {
+    wrapperClientRect = wrapperBlock.getBoundingClientRect()
+    scrollTop = wrapperBlock.scrollTop
+  }
 }
 
 const checkItemsVisibility = (wrapper: HTMLElement) => {
