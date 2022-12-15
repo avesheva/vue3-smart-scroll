@@ -2,13 +2,14 @@
 import { onMounted } from 'vue'
 import { delay } from './utils/helpers'
 
-interface Props {
+export interface Props {
   id?: string,
   scrollDelay?: number,
   onlyVisible?: boolean,
   deleteViewed?: boolean,
   itemAttribute?: string,
 }
+
 const props = withDefaults(defineProps<Props>(), {
   id: 'smartScrollContainer',
   scrollDelay: 300,
