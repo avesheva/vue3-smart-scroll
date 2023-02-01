@@ -76,7 +76,7 @@ export default {
 | NAME          | TYPE    | DEFAULT              | DESCRIPTION |
 |---------------|---------|----------------------|-------------------------------|
 | id            | String  | smartScrollContainer | Component id                  |
-| scrollDelay   | Number  | 300                  | Delay of scroll event handler |
+| scrollDelay (ms)   | Number  | 300                  | Delay of scroll event handler |
 | onlyVisible   | Boolean | false                | If **true**, component marks all viewed items once and not changes visibility, when item gets hdden 
 | deleteViewed  | Boolean | false                | If **true**, viewed items remove, when they leave visible area 
 | itemAttribute | String  | " "                  | Custom list item attribute. If set, and **deleteViewed = true**, event **items-delete** returns list of                                                      this items
