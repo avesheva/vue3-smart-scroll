@@ -83,6 +83,7 @@ const intersectionHandler = (data: IIntersectionData) => {
 |--------------------|------------------|----------------------|-------------------------------|
 | id?                | String           | smartScrollContainer | Main block id. Component starts tracking this block and its children for intersections |
 | scrollDelay? (ms)  | Number           | 0                    | Delay for __*intersect*__ event calback function in milliseconds |
+| checkViewing?      | Boolean          | false                | If __*true*__, component stop observing item in main block after first intersection. Improves performance. Can be used with message/notifications lists, for example, when you need to check item visibility only once
 | threshold?         | Number, Number[] | 0                    | [Intersection Observer constructor](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver) options param |
 | rootMargin?           | String                            | " "               | [Intersection Observer constructor](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver) options param |
 
