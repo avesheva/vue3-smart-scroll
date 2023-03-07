@@ -6,7 +6,8 @@ export interface Props {
   id?: string,
   scrollDelay?: number,
   rootMargin?: string,
-  threshold?: number | number[]
+  threshold?: number | number[],
+  checkViewing?: boolean,
 }
 
 export interface IIntersectionData {
@@ -19,6 +20,7 @@ const props = withDefaults(defineProps<Props>(), {
   scrollDelay: 0,
   rootMargin: '',
   threshold: 0,
+  checkViewing: false,
 })
 
 const emit = defineEmits(['intersect'])
@@ -36,6 +38,14 @@ const init = () => {
     const data: IIntersectionData = {
       scrollDirection: lastY > wrapper.scrollTop ? 'up' : 'down',
       entries,
+    }
+
+    if (props.checkViewing) {
+      entries.forEach((entry: IntersectionObserverEntry) => {
+        if (entry.isIntersecting) {
+          intersectionObserver?.unobserve(entry.target)
+        }
+      })
     }
 
     lastY = wrapper.scrollTop
