@@ -2,6 +2,9 @@
 
 Vue 3 typescript scroll block with items visibility detection and other features
 
+[screencast-localhost_5173-2023.01.31-20_15_32.webm](https://user-images.githubusercontent.com/12416010/215848044-2aa60e4a-ca42-4861-9527-5d4ed9eabfa4.webm)
+
+
 ## Short description
 - Component marks all elements in visible area with **data-is-visible="true"**, and all hidden elements with **data-is-visible="false"**.
 - If prop **onlyVisible** is **true**, component adds only **data-is-visible="true"** attribute. Good for marking seen messages, notifications in scroll list, etc.
@@ -73,7 +76,7 @@ export default {
 | NAME          | TYPE    | DEFAULT              | DESCRIPTION |
 |---------------|---------|----------------------|-------------------------------|
 | id            | String  | smartScrollContainer | Component id                  |
-| scrollDelay   | Number  | 300                  | Delay of scroll event handler |
+| scrollDelay (ms)   | Number  | 300                  | Delay of scroll event handler |
 | onlyVisible   | Boolean | false                | If **true**, component marks all viewed items once and not changes visibility, when item gets hdden 
 | deleteViewed  | Boolean | false                | If **true**, viewed items remove, when they leave visible area 
 | itemAttribute | String  | " "                  | Custom list item attribute. If set, and **deleteViewed = true**, event **items-delete** returns list of                                                      this items
